@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}" type="text/css">
+    <title>Document</title>
+</head>
+<body>
+   {% if result == 'dizzle' %}
+   <h2>The weather seems to be dizzle</h2>
+   {% endif %}
+   {% if result == 'rain' %}
+   <h2>The weather seems to be rain</h2>
+   {% endif %}
+   {% if result == 'sun' %}
+   <h2>The weather seems to be sunny</h2>
+   {% endif %}
+   {% if result == 'snow' %}
+   <h2>The weather seems to be snowy</h2>
+   {% endif %}
+</body>
+</html>

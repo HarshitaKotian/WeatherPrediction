@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-image: url('{% static 'images/background-sky.jpg' %}');" id="bg">
+    <h1 class="text-center m-4">The Weather prediction site</h1><br><br>
+    <h3 class="text-center">Enter the weather details below</h3>
+    <div class="container">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+
+                <form action="/checkweather/" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="precipitation" placeholder="Enter precipitation value" class="form-group form-control bg-light"><br>
+                    <input type="text" name="maxtemp" placeholder="Enter max temperature" class="form-group form-control bg-light"><br>
+                    <input type="text" name="mintemp" id="" placeholder="Enter min temperature" class="form-group form-control bg-light"><br>
+                    <input type="text" name="wind" placeholder="Enter wind value" class="form-group form-control bg-light"><br>
+                    <button type="submit" class="btn btn-primary bg-secondary form-control">CHECK WEATHER</button><br><br>
+                </form>
+            </div>
+            <div class="col-4">
+               
+            </div>
+        </div>
+    </div>
+    <div>
+
+        {% if result == 'dizzle' %}
+        <center><h2>The weather seems to be dizzle</h2></center>
+        {% endif %}
+        {% if result == 'rain' %}
+        <center><h2>The weather seems to be rain</h2></center>
+        {% endif %}
+        {% if result == 'sun' %}
+        <center><h2>The weather seems to be sunny</h2></center>
+        {% endif %}
+        {% if result == 'snow' %}
+        <center><h2>The weather seems to be snowy</h2></center>
+        {% endif %}
+    </div>
+</body>
+</html>
